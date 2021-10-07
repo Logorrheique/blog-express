@@ -5,7 +5,8 @@ const morgan = require('morgan');
 const app = express();
 const port = process.env.PORT || 3000;
 const handlebars = require('express-handlebars')
-
+const mysqlActions = require('./utils');
+// const SQLcommand = require('./mysqlActions');
 //nodemon
 app.use(morgan('combined'));
 app.use(cors());
@@ -37,20 +38,10 @@ app.get('/', function (req, res) {
     })
 })
 // create a connection variable with the required details
-const con = mysql.createConnection(config.db);
-//connection to DB and display data from DB
-con.connect(function (err) {
-    if (err) throw err;
-    app.get('/database', function (req, res) {
-        con.query("SELECT id,name FROM identity", function (err, result, fields) {
-            res.render('main', {
-                layout: 'dataDB',
-                dataID: result
-            })
-            if (err) throw err;
-        });
-    })
-});
+const connectionDB = mysql.createConnection(config.db);
+
+mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
+
 
 //launch
 app.listen(port, () => {
