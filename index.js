@@ -39,7 +39,11 @@ app.get('/', function (req, res) {
 })
 // create a connection variable with the required details
 const connectionDB = mysql.createConnection(config.db);
-//database
+//Create a database
+connectionDB.query("CREATE DATABASE blogExpressDB", function (err, result) {
+    console.log("Base de données créée !");
+  });
+//action with SQL
 mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
 
 
