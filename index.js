@@ -45,11 +45,12 @@ app.get('/creation-post-form', function (req, res) {
 })
 app.post('/creation-post',function(req, res, next){
     // let userId = parseInt(req.body.id);
-    const userName = req.body.name;
-    const values = userName;
+    const title = req.body.title;
+    const postContent = req.body.postContent;
+    const values = [title,postContent,0];
     console.log(values);
-    const sql = "INSERT INTO auto(name) VALUES(?)"
-    connectionDB.query(sql,values,function (err, data) { 
+    const sql = "INSERT INTO listpost(title,postContent,numberOfLike) VALUES(?)"
+    connectionDB.query(sql,[values],function (err, data) { 
         console.log("INSERT INTO -> OK")
         if (err) throw err;
            console.log("User dat is inserted successfully "); 
@@ -64,7 +65,7 @@ const connectionDB = mysql.createConnection(config.db);
 //   });
 //action with SQL
 mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
-// connectionDB.query('CREATE TABLE auto (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name VARCHAR(255))');
+// connectionDB.query('CREATE TABLE listPost (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,title VARCHAR(30),postContent VARCHAR(500),numberOfLike INT)');
 
 //launch
 app.listen(port, () => {
