@@ -39,7 +39,7 @@ app.get('/', function (req, res) {
 })
 // create a connection variable with the required details
 const connectionDB = mysql.createConnection(config.db);
-
+//database
 mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
 
 
