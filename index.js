@@ -37,15 +37,34 @@ app.get('/', function (req, res) {
         layout: 'index'
     })
 })
+app.get('/creation-post-form', function (req, res) {
+    res.render('main', {
+        layout: 'creation-post',       
+    })
+    console.log("form display OK")
+})
+app.post('/creation-post',function(req, res, next){
+    // let userId = parseInt(req.body.id);
+    const userName = req.body.name;
+    const values = userName;
+    console.log(values);
+    const sql = "INSERT INTO auto(name) VALUES(?)"
+    connectionDB.query(sql,values,function (err, data) { 
+        console.log("INSERT INTO -> OK")
+        if (err) throw err;
+           console.log("User dat is inserted successfully "); 
+    });
+    res.redirect('/'); 
+})
 // create a connection variable with the required details
 const connectionDB = mysql.createConnection(config.db);
 //Create a database
-connectionDB.query("CREATE DATABASE blogExpressDB", function (err, result) {
-    console.log("Base de données créée !");
-  });
+// connectionDB.query("CREATE DATABASE blogExpressDB", function (err, result) {
+//     console.log("Database Created !");
+//   });
 //action with SQL
 mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
-
+// connectionDB.query('CREATE TABLE auto (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name VARCHAR(255))');
 
 //launch
 app.listen(port, () => {
