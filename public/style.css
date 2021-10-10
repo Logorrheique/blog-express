@@ -83,7 +83,6 @@ body{
 }
 .post>button{
    margin: 0.5em;
-
    display: flex;
    align-self: flex-end;
    border-radius:2px ;
@@ -127,7 +126,6 @@ body{
    border-radius: 6px;
    text-decoration:none;
    background-color: black;
-
 }
 .form-post>button {
    display: flex;
@@ -150,8 +148,6 @@ body{
    color: var(--black);
    border: 2.5px solid var(--purple);
    border-radius: 6px;
-
-
 }
 /* FORM POST */
 /* FORM POST */

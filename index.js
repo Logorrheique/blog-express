@@ -20,6 +20,40 @@ app.use(
 //test database
 let config = require('./config.js');
 const mysql = require('mysql');
+//google Auth
+const {OAuth2Client} = require('google-auth-library');
+const CLIENT_ID = '1035084393625-m49ejigc2j57es8t6pigpvvc3l7r3sr6.apps.googleusercontent.com';
+const client = new OAuth2Client(CLIENT_ID);
+app.use(express.json());
+app.get('/login', function (req, res) {
+    res.render('main', {
+        layout: 'login'
+    })
+})
+app.post('/login',function(req,res){
+    let token = req.body.token;
+    // console.log(token);
+    async function verify() {
+        const ticket = await client.verifyIdToken({
+            idToken: token,
+            audience: CLIENT_ID,  // Specify the CLIENT_ID of the app that accesses the backend
+            // Or, if multiple clients access the backend:
+            //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+        });
+        const payload = ticket.getPayload();
+        const userid = payload['sub'];
+        console.log(payload);
+        // If request specified a G Suite domain:
+        // const domain = payload['hd'];
+      }
+      
+      verify().catch(console.error);
+})
+
+
+
+
+
 
 
 
@@ -37,6 +71,8 @@ app.get('/', function (req, res) {
         layout: 'index'
     })
 })
+
+
 app.get('/creation-post-form', function (req, res) {
     res.render('main', {
         layout: 'creation-post',       
