@@ -64,7 +64,7 @@ const connectionDB = mysql.createConnection(config.db);
 //     console.log("Database Created !");
 //   });
 //action with SQL
-mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM identity");
+mysqlActions(app,connectionDB,'/database-select',"SELECT id,name FROM listPost");
 // connectionDB.query('CREATE TABLE listPost (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,title VARCHAR(30),postContent VARCHAR(500),numberOfLike INT)');
 
 //launch
