@@ -109,7 +109,7 @@ body{
    align-self: center;
    height: 3em;
    width: 40%;
-   border: 2.5px solid var(--white);
+   border: 2.5px solid var(--purple);
    border-radius: 6px;
    text-decoration:none;
    background-color: black;
