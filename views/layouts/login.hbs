@@ -11,29 +11,29 @@
 <body>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <h1>Login</h1>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    
+    <div class="g-signin2" data-onsuccess="onSignIn" id="login">Sign up with Google</div>
     <script>
-        function onSignIn(googleUser) {
-            var id_token = googleUser.getAuthResponse().id_token;
-            console.log(id_token);
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST','/login');
-            xhr.setRequestHeader('Content-Type', 'application/json');
-            xhr.onload = function() {
-            console.log('Signed in as: ' + xhr.responseText);
-            };
+    function onSignIn(googleUser) {
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log(id_token);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/login');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function() {
+        console.log('Signed in as: ' + xhr.responseText);
+        };
             xhr.send(JSON.stringify({token : id_token}));
-}
+    }
+
     </script>
     <a href="#" onclick="signOut();">Sign out</a>
     <script>
-        function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-            console.log('User signed out.');
-            });
-        }
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+        console.log('User signed out.');
+        });
+    }
     </script>
 </body>
 </html>
