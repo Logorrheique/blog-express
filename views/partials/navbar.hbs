@@ -1,10 +1,15 @@
 <link rel="stylesheet" href="./navbar-style.css">
+{{>google-login}}
 <div class="navbar">
     <a href="/">Index</a>
     <a href="/creation-post-form">Post</a>
     <a href="">GlobalPost</a>
-    <a href="">Manage Your Posts</a>
-    <a href="/login">Login</a>
-    <a href="/profile">profile</a>
+    <a href="/profile">Your Profile</a> 
+    <div class="google-navbar">
+        <a >Login With :</a>
+        <div class="g-signin2" data-onsuccess="onSignIn" id="login">Sign up with Google</div>   
+    </div>
 </div>
+
+
 

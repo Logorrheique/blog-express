@@ -1,0 +1,33 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="1035084393625-m49ejigc2j57es8t6pigpvvc3l7r3sr6.apps.googleusercontent.com">
+<script>
+    function onSignIn(googleUser) {
+        var id_token = googleUser
+            .getAuthResponse()
+            .id_token;
+        console.log(id_token);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/login');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            if (xhr.responseText == 'success') {
+                signOut();
+                location.assign('/profile');
+            }
+        };
+        xhr.send(JSON.stringify({token: id_token}));
+    }
+</script>
+
+<script>
+    function signOut() {
+        var auth2 = gapi
+            .auth2
+            .getAuthInstance();
+        auth2
+            .signOut()
+            .then(function () {
+                console.log('User signed out.');
+            });
+    }
+</script>

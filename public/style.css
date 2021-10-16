@@ -16,6 +16,7 @@ body{
    font-size: 15px;
    height: 90vh;
    background-color:var(--bg-blue);
+   color: rgb(216, 214, 214);
 }
 .body-content{
    width: 100%;
@@ -24,10 +25,9 @@ body{
    align-items: center;
    flex-direction: column;
 }
-/* NAVBAR */
-/* NAVBAR */
-/* NAVBAR */
 
+
+/* NAVBAR */
 .navbar{
    display: flex;
    justify-content: space-around;
@@ -50,12 +50,25 @@ body{
    transform: scale(1.01);
    }
 /* NAVBAR */
-/* NAVBAR */
-/* NAVBAR */
 
+/* GOOGLE NAVBAR */
+.google-navbar{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+   width: 15%;
+   border: 1.5px solid rgb(255, 255, 255);
+   border-radius: 12px;
+}
+.google-navbar>a{
+   text-decoration:none;
+   color: whitesmoke;
+   padding: 0.75em;
+   text-shadow: 2px 5px 5px var(--purple);
+}
+/* GOOGLE NAVBAR */
 
-/* POST */
-/* POST */
 /* POST */
 .globalpost-content{
    margin : 5em;
@@ -94,11 +107,9 @@ body{
    border: 1px solid var(--white);
 }
 /* POST */
-/* POST */
-/* POST */
 
-/* FORM POST */
-/* FORM POST */
+
+
 /* FORM POST */
 .form-post{
    width: 50em;
@@ -150,5 +161,13 @@ body{
    border-radius: 6px;
 }
 /* FORM POST */
-/* FORM POST */
-/* FORM POST */
+
+
+/* GOOGLE LOGIN PAGE */
+.google-auth-login{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
