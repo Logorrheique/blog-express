@@ -14,11 +14,12 @@ const morgan = require('morgan');
 app.use(morgan('combined'));
 app.use(cors());
 
+//showtoast
+const showToast = require("show-toast");
+
 //handlebars templating
 const handlebars = require('express-handlebars')
 
-//routes
-const routes = require('./routes.js')
 //mysql
 const mysqlActions = require('./utils');
 let config = require('./config.js');
@@ -29,11 +30,9 @@ const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID = '1035084393625-m49ejigc2j57es8t6pigpvvc3l7r3sr6.apps.googleusercontent.com';
 const client = new OAuth2Client(CLIENT_ID);
 
-//render le /login : '/login'
 app.get('/login', (req,res)=> {
     res.render('main', {layout: 'login'})
 })
-//récup le token grace a une request POST depuis le /login
 app.post('/login', (req,res)=> {
     let token = req.body.token;
     async function verify() {
@@ -56,6 +55,7 @@ app.get('/profile', checkAuthenticated, (req,res) => {
         layout: 'profile',
         userInfos: user
     })
+    
 });
 
 app.get('/logout', (req,res)=> {
@@ -71,6 +71,7 @@ function checkAuthenticated(req, res, next) {
             idToken: token, audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
         });
         const payload = ticket.getPayload();
+        console.log(payload);
         user.name = payload.name;
         user.email = payload.email;
         user.picture = payload.picture;
@@ -80,8 +81,9 @@ function checkAuthenticated(req, res, next) {
             req.user = user;
             next();
         })
-        .catch(err => {
-            res.redirect('/') //not verified so -> /login
+        .catch((err) => { 
+            res.redirect('/');
+            //not verified so -> /login
         })
 
     }
@@ -100,7 +102,7 @@ app.get('/', (req, res) => {
 })
 
 //render la page de création d'un post  :'/creation-post-form'
-app.get('/creation-post-form', (req, res) => {
+app.get('/creation-post-form',checkAuthenticated, (req, res) => {
     res.render('main', {layout: 'creation-post'});
 })
 

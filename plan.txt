@@ -1,0 +1,8 @@
+Créer une table user ( 
+    id_userEmail INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    userName VARCHAR
+    userPicture VARCHAR (255)
+    userCountry VARCHAR (255)
+    userPosts int --> FOREIGN KEY userPosts REFERENCES
+)
+
