@@ -4,7 +4,6 @@ const config = {
     host    : 'localhost',
     user    : 'root',
     password: 'RA71K2CWFH/3B,',
-    database: 'firstdb'
   },
 };
 console.log(`Succesfully connected to`,config.db.database,`database`)
