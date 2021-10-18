@@ -31,5 +31,5 @@ Page Global Post :
 DATABASE : 
     3 TABLES 
     user ( id_user PK , user_email, user_name, user_picture, listpost(id_post) FK)
-    list_Post ( id_user PK, post(id_post) FK) #les "id_post" seront incrementer dans l'ordre pour gérer leurs ordres de parutions
+    list_Post ( id_user PK, post(id_post) FK)          #les "id_post" seront incrementer dans l'ordre pour gérer leurs ordres de parutions
     post ( id_post PK, title, content)
