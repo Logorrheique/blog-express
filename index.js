@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
-
+exports.app = app;
 //cookie parser
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -14,11 +14,8 @@ const morgan = require('morgan');
 app.use(morgan('combined'));
 app.use(cors());
 
-//showtoast
-const showToast = require("show-toast");
-
 //handlebars templating
-const handlebars = require('express-handlebars')
+const handlebars = require('express-handlebars');
 
 let config = require('./config.js');
 const mysql = require('mysql');
@@ -34,14 +31,12 @@ const { checkAuthenticated } = require("./googleAuth/checkAuthenticated");
 
 app.post('/login', (req,res) => { getGGToken(req,res); } );
 
-app.get('/profile', checkAuthenticated, (req,res) => {
+app.get('/profile', checkAuthenticated, (req,res) =>  {     
     let user = req.user;
     res.render('main', {
         layout: 'profile',
         userInfos: user
-    })
-    
-});
+    }) });
 
 app.get('/logout', (req,res)=> {
     res.clearCookie('session-token');
@@ -49,7 +44,7 @@ app.get('/logout', (req,res)=> {
 })
 
 //layout handler view engine
-app.use(express.static('public'))
+app.use(express.static('public'))//maybe pour le style par layout 
 app.set('view engine', 'hbs')
 app.engine('hbs', handlebars({
     layoutsDir: __dirname + '/views/layouts',
@@ -58,15 +53,10 @@ app.engine('hbs', handlebars({
 }))
 
 //render l'index '/'
-app.get('/', (req, res) => {
-    console.log(req.body);
-    res.render('main', {layout: 'index'});
-})
+app.get('/', (req, res) => {res.render('main', {layout: 'index'});})
 
 //render la page de création d'un post  :'/creation-post-form'
-app.get('/creation-post-form',checkAuthenticated, (req, res) => {
-    res.render('main', {layout: 'creation-post'});
-})
+app.get('/creation-post-form',checkAuthenticated, (req, res) => {res.render('main', {layout: 'creation-post'});})
 
 //récup les infos du form :'/creation-post'
 app.post('/creation-post', (req, res) => {
