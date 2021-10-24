@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
-exports.app = app;
+
 //cookie parser
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
@@ -17,31 +17,29 @@ app.use(cors());
 //handlebars templating
 const handlebars = require('express-handlebars');
 
-let config = require('./config.js');
-const mysql = require('mysql');
-
-//google Auth method
+//google auth
 const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID = '1035084393625-m49ejigc2j57es8t6pigpvvc3l7r3sr6.apps.googleusercontent.com';
-exports.CLIENT_ID = CLIENT_ID;
 const client = new OAuth2Client(CLIENT_ID);
+exports.CLIENT_ID = CLIENT_ID;
 exports.client = client;
-const getGGToken = require('./googleAuth/google-token');
-const { checkAuthenticated } = require("./googleAuth/checkAuthenticated");
 
-app.post('/login', (req,res) => { getGGToken(req,res); } );
+//import routes
+const mainRoutes = require('./routes/mainRoutes');
+const loginRoutes = require('./routes/loginRoutes');
+const logoutRoutes = require('./routes/logoutRoutes');
+const profileRoutes = require('./routes/profileRoutes');
+const createPostRoutes = require('./routes/createPostRoutes');
+const sendPostRoutes = require('./routes/sendPostRoutes');
 
-app.get('/profile', checkAuthenticated, (req,res) =>  {     
-    let user = req.user;
-    res.render('main', {
-        layout: 'profile',
-        userInfos: user
-    }) });
+//routes
+app.use('/', mainRoutes)
+app.use('/login', loginRoutes);
+app.use('/logout', logoutRoutes);
+app.use('/profile', profileRoutes)
+app.use('/create-post', createPostRoutes);
+app.use('/send-post', sendPostRoutes);
 
-app.get('/logout', (req,res)=> {
-    res.clearCookie('session-token');
-    res.redirect('/');
-})
 
 //layout handler view engine
 app.use(express.static('public'))//maybe pour le style par layout 
@@ -51,30 +49,6 @@ app.engine('hbs', handlebars({
     extname: 'hbs',
     partialsDir: __dirname + '/views/partials/'
 }))
-
-//render l'index '/'
-app.get('/', (req, res) => {res.render('main', {layout: 'index'});})
-
-//render la page de création d'un post  :'/creation-post-form'
-app.get('/creation-post-form',checkAuthenticated, (req, res) => {res.render('main', {layout: 'creation-post'});})
-
-//récup les infos du form :'/creation-post'
-app.post('/creation-post', (req, res) => {
-    const title = req.body.title;
-    const postContent = req.body.postContent;
-    const values = [title, postContent, 0];
-    const sql = "INSERT INTO listpost(title,postContent,numberOfLike) VALUES(?)";
-    connectionDB.query(sql, [values], function (err, data) {
-        if (err) 
-            throw err;
-            //    console.log("User dat is inserted successfully ");
-        }
-    );
-    res.redirect('/');
-})
-
-// create a connection variable with the required details
-const connectionDB = mysql.createConnection(config.db);
 
 
 app.listen(port, () => {
