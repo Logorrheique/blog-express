@@ -8,12 +8,6 @@ const port = process.env.PORT || 3000;
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
-//nodemon
-const cors = require('cors');
-const morgan = require('morgan');
-app.use(morgan('combined'));
-app.use(cors());
-
 //handlebars templating
 const handlebars = require('express-handlebars');
 

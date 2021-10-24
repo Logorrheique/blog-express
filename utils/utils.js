@@ -7,7 +7,7 @@ function mysqlAction(expressAppName,ConnectionToDatabase,route,SQL_instruction){
         })
     })
 }
-module.exports = {mysqlAction ,getProfile};
+module.exports = { mysqlAction };
 
 
 
