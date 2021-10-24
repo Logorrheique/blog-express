@@ -18,21 +18,15 @@ const client = new OAuth2Client(CLIENT_ID);
 exports.CLIENT_ID = CLIENT_ID;
 exports.client = client;
 
-//import routes
-const mainRoutes = require('./routes/mainRoutes');
-const loginRoutes = require('./routes/loginRoutes');
-const logoutRoutes = require('./routes/logoutRoutes');
-const profileRoutes = require('./routes/profileRoutes');
-const createPostRoutes = require('./routes/createPostRoutes');
-const sendPostRoutes = require('./routes/sendPostRoutes');
 
+const routes = require('./routes/routesModules');
 //routes
-app.use('/', mainRoutes)
-app.use('/login', loginRoutes);
-app.use('/logout', logoutRoutes);
-app.use('/profile', profileRoutes)
-app.use('/create-post', createPostRoutes);
-app.use('/send-post', sendPostRoutes);
+app.use('/', routes.main);
+app.use('/login', routes.login);
+app.use('/logout', routes.logout);
+app.use('/profile', routes.profile);
+app.use('/create-post', routes.createPost);
+app.use('/send-post', routes.sendPost);
 
 
 //layout handler view engine
