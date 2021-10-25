@@ -38,6 +38,9 @@ app.engine('hbs', handlebars({
     partialsDir: __dirname + '/views/partials/'
 }))
 
+//mysql Set up your database
+const createDatabase = require('./db/configDatabase');
+createDatabase();
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

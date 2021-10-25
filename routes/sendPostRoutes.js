@@ -3,7 +3,7 @@ const express = require('express');
 //router
 const router = express.Router();
 //db connection
-const connectionDB = require('../db/config');
+const connectionDB = require('../db/configConnect');
 
 router.post('/', (req, res) => {
     const title = req.body.title;
