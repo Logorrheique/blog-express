@@ -41,7 +41,7 @@ async function createDatabase() {
 module.exports = createDatabase,connectionDB;
 
 
-
+//SOULD FIX PRIMARY AND AUTO INCREMENT WITH IGNORE CONTRAINT
 
 
 
