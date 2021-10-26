@@ -7,8 +7,8 @@ function checkAuthenticated(req, res, next) {
             idToken: token, audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
         });
         const payload = ticket.getPayload();
-        user.name = payload.name;
         user.email = payload.email;
+        user.name = payload.name;
         user.picture = payload.picture;
     }
     verify()

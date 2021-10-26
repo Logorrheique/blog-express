@@ -19,9 +19,9 @@ async function database() {
 
 //definition of tables
 const tables = [
-    userTable = 'CREATE TABLE IF NOT EXISTS user (user_id INT PRIMARY KEY AUTO_INCREMENT,user_email VARCHAR (255),user_name VARCHAR (25),user_picture VARCHAR (255))',
+    userTable = 'CREATE TABLE IF NOT EXISTS user (user_id INT PRIMARY KEY AUTO_INCREMENT,user_email VARCHAR (255) ,user_name VARCHAR (25) NOT NULL,user_picture VARCHAR (255) NOT NULL)',
     postTable = 'CREATE TABLE IF NOT EXISTS post (post_id INT PRIMARY KEY AUTO_INCREMENT, post_title VARCHAR(255), post_content VARCHAR (3000))',
-    postListTable = 'CREATE TABLE IF NOT EXISTS post_list (user_id INT, post INT, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (post) REFERENCES user(post_id))',
+    postListTable = 'CREATE TABLE IF NOT EXISTS post_list (user_id INT, post INT, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (post) REFERENCES post(post_id))',
 ];
 async function createTable() {
     connectionDB.connect(function (err) {
@@ -38,7 +38,7 @@ async function createTable() {
 async function createDatabase() {
     await database().then(createTable());
 }
-module.exports = createDatabase;
+module.exports = createDatabase,connectionDB;
 
 
 
