@@ -12,7 +12,7 @@
         xhr.onload = function () {
             if (xhr.responseText == 'success') {
                 signOut();
-                location.assign('/profile');
+                
             }
         };
         xhr.send(JSON.stringify({token: id_token}));

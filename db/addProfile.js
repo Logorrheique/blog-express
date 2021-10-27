@@ -8,12 +8,11 @@ const config = require('./configConnect');
 const connectionDB = mysql.createConnection(config.db);
 
 const addUser = ( user ) => {
-    console.log(user);
-    const values = [0,user.email, user.name, user.picture]
+    const values = [user.id,user.email, user.name, user.picture]
     const sql = 'INSERT IGNORE INTO user VALUES(?)'
     connectionDB.connect((err) => {
         connectionDB.query(sql,[values],(err,result) => {
-            console.log(result.affectedRows);
+            if(result.affectedRows == 0) console.log('Already in your DB');
         }) 
     })
 }

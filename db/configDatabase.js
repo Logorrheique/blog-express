@@ -8,7 +8,7 @@ const config = require('./configConnect');
 const connectionDB = mysql.createConnection(config.db);
 
 //database function
-async function database() {
+function database() {
     const database = 'CREATE DATABASE IF NOT EXISTS logopost';
     connectionDB.query(database, (err, result) => {
         if (err) 
@@ -19,29 +19,28 @@ async function database() {
 
 //definition of tables
 const tables = [
-    userTable = 'CREATE TABLE IF NOT EXISTS user (user_id INT PRIMARY KEY AUTO_INCREMENT,user_email VARCHAR (255) ,user_name VARCHAR (25) NOT NULL,user_picture VARCHAR (255) NOT NULL)',
-    postTable = 'CREATE TABLE IF NOT EXISTS post (post_id INT PRIMARY KEY AUTO_INCREMENT, post_title VARCHAR(255), post_content VARCHAR (3000))',
-    postListTable = 'CREATE TABLE IF NOT EXISTS post_list (user_id INT, post INT, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (post) REFERENCES post(post_id))',
+    'CREATE TABLE IF NOT EXISTS user (user_id VARCHAR (21) PRIMARY KEY,user_email VARCHAR (255) ,user_name VARCHAR (25) NOT NULL,user_picture VARCHAR (255) NOT NULL)',
+    'CREATE TABLE IF NOT EXISTS post (post_id INT PRIMARY KEY AUTO_INCREMENT, post_title VARCHAR(255), post_content VARCHAR (3000))',
+    'CREATE TABLE IF NOT EXISTS post_list (user_id VARCHAR (21), post INT, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (post) REFERENCES post(post_id))',
 ];
-async function createTable() {
+
+//creation of tables
+function createTable() {
     connectionDB.connect(function (err) {
         tables.forEach(element => {
             connectionDB.query(element, (err, result) => {
-                if (err) 
-                    throw err;
-                console.log(`table ok`);
+                if (err) throw err;
             })
         });
     })
 };
-
-async function createDatabase() {
-    await database().then(createTable());
+//function to create the entirely database 
+function createDatabase() {
+    // database(); uncomment if need 
+    createTable();
 }
 module.exports = createDatabase,connectionDB;
 
-
-//SOULD FIX PRIMARY AND AUTO INCREMENT WITH IGNORE CONTRAINT
 
 
 
