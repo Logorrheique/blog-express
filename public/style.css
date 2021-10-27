@@ -69,6 +69,26 @@ body{
 }
 /* GOOGLE NAVBAR */
 
+/* GOOGLE LOGIN BUTTON ONLY */
+.google-login-button-only{
+   height: 50vh;
+   display: flex;
+   justify-content: center;
+   vertical-align: center;
+   flex-direction: column;
+   border: 1.5px solid rgb(255, 255, 255);
+   border-radius: 12px;
+   margin-top: 5%;
+}
+.google-login-button-only>*{
+   display: flex;
+   align-self: center;
+}
+.google-login-button-only{
+   border: 1.5px solid rgb(255, 255, 255);
+   border-radius: 12px;
+}
+
 /* POST */
 .globalpost-content{
    margin : 5em;

@@ -8,7 +8,16 @@
     <title>Login Page</title>
 </head>
 <body>
-    {{> navbar }}
     {{>google-login}}
+    <div class="navbar">
+        <a href="/">Index</a>
+        <a href="/create-post">Post</a>
+        <a href="">GlobalPost</a>
+        <a href="/profile">Your Profile</a> 
+    </div>
+    <div class="google-login-button-only">
+        <h1 >You should be login before with :</h1>
+        <div class="g-signin2" data-onsuccess="onSignIn" id="login">Sign up with Google</div>   
+    </div>
 </body>
 </html>
