@@ -14,7 +14,7 @@ function checkAuthenticated(req, res, next) {
     }
     verify()
         .then(() => {
-            req.user = user;
+            req.user = user; 
             console.log("USER VERIFIED");
             next();
         })
