@@ -1,6 +1,3 @@
-//mysql
-const mysql = require('mysql');
-
 //database config
 const configConnect = {
     db: {/* don't expose password or any sensitive info, done only for demo */

@@ -11,6 +11,14 @@ app.use(cookieParser());
 //handlebars templating
 const handlebars = require('express-handlebars');
 
+//body parser
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(
+    bodyParser.urlencoded({
+        extended: true,
+    })
+);
 //google auth
 const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID = '1035084393625-m49ejigc2j57es8t6pigpvvc3l7r3sr6.apps.googleusercontent.com';
@@ -26,7 +34,7 @@ app.use('/login', routes.login);
 app.use('/logout', routes.logout);
 app.use('/profile', routes.profile);
 app.use('/create-post', routes.createPost);
-
+app.use('/send-post', routes.sendPost);
 
 //layout handler view engine
 app.use(express.static('public'))//maybe pour le style par layout 
