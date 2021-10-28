@@ -26,7 +26,6 @@ app.use('/login', routes.login);
 app.use('/logout', routes.logout);
 app.use('/profile', routes.profile);
 app.use('/create-post', routes.createPost);
-app.use('/send-post', routes.sendPost);
 
 
 //layout handler view engine

@@ -6,7 +6,7 @@ const router = express.Router();
 const getGGToken = require('../googleAuth/google-token');
 
 router.post('/', (req, res) => {
-  getGGToken();
+  getGGToken(req,res);
   
 });
 router.get('/',(req,res) => {
