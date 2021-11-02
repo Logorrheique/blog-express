@@ -69,8 +69,32 @@ body{
 }
 /* GOOGLE NAVBAR */
 
+/* PRESENTATION */
+.presentation{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin-top: 5%;
+}
+/* PRESENTATION */
 
-
+/* PROFILE */
+.profile{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   margin: 5%;
+}
+.profile>img{
+   display: flex;
+   border-radius: 100%;
+   border: 2px solid var(--purple);
+   width: 64px;
+   height: 64px;
+}
+/* PROFILE */
 /* FEED */
 .feed{
    display: flex;
@@ -79,6 +103,7 @@ body{
    flex-direction: column;
 }
 /* FEED */
+
 /* POST */
 .post{
    display: flex;
@@ -175,4 +200,4 @@ body{
    align-items: center;
    flex-direction: column;
 }
-
+/* GOOGLE LOGIN PAGE */
