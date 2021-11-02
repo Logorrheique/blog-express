@@ -1,9 +1,10 @@
 //export all routes as modules
 module.exports = {
-    createPost : require('./createPostRoutes'),
-    login: require('./loginRoutes'),
-    logout: require('./logoutRoutes'),
-    main: require('./mainRoutes'),
-    profile: require('./profileRoutes'),
-    sendPost: require('./sendPostRoutes')
+    createPost : require('./createPost'),
+    login: require('./login'),
+    logout: require('./logout'),
+    main: require('./main'),
+    profile: require('./profile'),
+    sendPost: require('./sendPost'),
+    feed : require('./feed')
  }

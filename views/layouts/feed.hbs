@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
  <head>
@@ -9,6 +10,19 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
  </head>  
 <body>
-    {{> navbar }}
+    {{>navbar-loged}}
+    <div class="feed">
+        {{#each postList as |post|}}
+            <div class="post">
+                <div class="post-header">
+                    <img src="{{post.user_picture}}" alt="" >
+                    <h5>{{post.user_name}}</h5>         
+                </div>
+                <h2>{{post.post_title}}</h2> 
+                <p>{{post.post_content}}</p>
+            </div>
+        {{/each}}
+    </div>
 </body>
 </html>
+

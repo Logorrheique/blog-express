@@ -20,8 +20,7 @@ function database() {
 //definition of tables
 const tables = [
     'CREATE TABLE IF NOT EXISTS user (user_id VARCHAR (21) PRIMARY KEY,user_email VARCHAR (255) ,user_name VARCHAR (25) NOT NULL,user_picture VARCHAR (255) NOT NULL)',
-    'CREATE TABLE IF NOT EXISTS post (post_id INT PRIMARY KEY AUTO_INCREMENT, post_title VARCHAR(255), post_content VARCHAR (3000))',
-    'CREATE TABLE IF NOT EXISTS post_list (user_id VARCHAR (21), post INT, FOREIGN KEY (user_id) REFERENCES user(user_id), FOREIGN KEY (post) REFERENCES post(post_id))',
+    'CREATE TABLE IF NOT EXISTS post (post_id INT PRIMARY KEY AUTO_INCREMENT,user_id VARCHAR (21),user_name VARCHAR (25),user_picture VARCHAR (255), post_title VARCHAR(255), post_content VARCHAR (3000))',
 ];
 
 //creation of tables

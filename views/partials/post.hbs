@@ -1,10 +1,8 @@
 <div class="post">
     <div class="post-header">
-        <a href="/profile"><img src="./img/icon.png" alt="" ></a><!--REPLACE "src" icon by user.name --> 
-        <a href="/profile">Logorrheique</a> <!--REPLACE "test inside link" icon by user.name -->           
+        <a href="/profile"><img src="{{postList.user_picture}}" alt="" ></a><!--REPLACE "src" icon by user.name --> 
+        <a href="/profile">{{post.user_name}}</a> <!--REPLACE "test inside link" icon by user.name -->           
     </div>
-    <h2>Tittle</h2><!--REPLACE "title of post" by user.titlepost --> 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo molestias atque est animi dolorum harum incidunt, a totam libero, reprehenderit quas obcaecati quae doloribus sequi temporibus modi. Cum, et tempore!
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo molestias atque est animi dolorum harum incidunt, a totam libero, reprehenderit quas obcaecati quae doloribus sequi temporibus modi. Cum, et tempore!     
-    </p><!--REPLACE "post content"  by user.postContent --> 
+    <h2>{{post.postTitle}}</h2><!--REPLACE "title of post" by user.titlepost --> 
+    <p>{{post.post_content}}</p><!--REPLACE "post content"  by user.postContent --> 
 </div>

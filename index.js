@@ -34,6 +34,7 @@ app.use('/logout', routes.logout);
 app.use('/profile', routes.profile);
 app.use('/create-post', routes.createPost);
 app.use('/send-post', routes.sendPost);
+app.use('/feed', routes.feed);
 
 //layout handler view engine
 app.use(express.static('public'))//maybe pour le style par layout 
