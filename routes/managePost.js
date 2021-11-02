@@ -16,13 +16,15 @@ const { checkAuthenticated } = require("../googleAuth/checkAuthenticated");
 const connectionDB = mysql.createConnection(config.db);
 
 router.get('/',checkAuthenticated,(req,res) => {
-    const query = 'select * from post order by post_id limit 10';
+    const user = req.user.id;
+    const query = 'SELECT * from post WHERE user_id = '+ user;
     connectionDB.connect((err) => {
         connectionDB.query(query,(err,result) => {
             if (err) throw err;
             const post = {...result};
-            res.render("main", { layout: "feed", postList : post});
+            res.render("main", { layout: "managePost", postList : post});
         }) 
     })
 })
+
 module.exports = router;

@@ -21,7 +21,6 @@ function getGGToken(req, res) {
             res.send('success');
             req.user = user;
             addUser(user);
-            console.log("TOKEN SEND");
         })
         .catch(console.error);
 }

@@ -6,5 +6,6 @@ module.exports = {
     main: require('./main'),
     profile: require('./profile'),
     sendPost: require('./sendPost'),
-    feed : require('./feed')
+    feed : require('./feed'),
+    managePost : require('./managePost'),
  }

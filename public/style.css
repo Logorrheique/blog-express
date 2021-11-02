@@ -104,6 +104,48 @@ body{
 }
 /* FEED */
 
+/* FEED-MANAGE AND POST*/
+.feed-manage{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+}
+.post-manage{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   margin: 1.5em;
+   border:1px solid var(--white);
+   border-radius: 12px;
+   width: 20%;
+   height: 300px;
+   color:var(--white);
+}
+.post-manage>p{
+   margin: 2%;
+   text-align: justify;
+}
+.post-manage-header{
+   display: flex;
+   width: 100%;
+}
+.post-manage-header>h5{
+   width: 100%;
+   justify-content: center;
+   align-self: center;
+}
+.post-manage-header>img{
+   display: flex;
+   align-self: flex-start;
+   border-radius: 100%;
+   border: 2px solid var(--purple);
+   width: 64px;
+   height: 64px;
+   margin: 2%;
+}
+/* FEED-MANAGE */
+
 /* POST */
 .post{
    display: flex;
@@ -192,6 +234,44 @@ body{
 }
 /* FORM POST */
 
+/* FORM MODIFY */
+.form-modify{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   flex-direction: column;
+   
+}
+.form-modify>*{
+   margin-top: 1%;
+   margin-left: 3%;
+   margin-right: 3%;
+   margin-bottom: 1%;
+   resize : none;
+}
+.form-modify>input{
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-self: center;
+   width: 50%;
+}
+.form-modify>button{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   align-self: flex-end;
+   height: 2em;
+   width: 20%;
+   border: 1px solid  #FFF;
+   border-radius: 6px;
+   text-decoration:none;
+   background-color: black;
+   color: whitesmoke;
+   text-shadow: 2px 3px 5px var(--purple);
+}
+/* FORM MODIFY */
 
 /* GOOGLE LOGIN PAGE */
 .google-auth-login{

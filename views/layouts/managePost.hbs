@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
  <head>
@@ -10,18 +11,21 @@
  </head>  
 <body>
     {{>navbar-loged}}
-    <div class="feed">
+    <div class="feed-manage">
         {{#each postList as |post|}}
-            <div class="post">
-                <div class="post-header">
+            <div class="post-manage">
+                <div class="post-manage-header">
                     <img src="{{post.user_picture}}" alt="" >
                     <h5>{{post.user_name}}</h5>         
                 </div>
-                <h2>{{post.post_title}}</h2> 
-                <p>{{post.post_content}}</p>
-            </div>
+                <form class="form-modify" action="" method="POST" name="postContent" id="post">
+                    <input type="text" name="title" required style="font-family: 'DM Sans', sans-serif" value = '{{post.post_title}}'>
+                    <textarea name="postContent" type="text" cols="13" rows="8" form="post" style="font-family: 'DM Sans', sans-serif;">{{post.post_content}}</textarea>
+                    <button type="submit">Submit</button>
+                </form>               
+        </div>
         {{/each}}
+
     </div>
 </body>
 </html>
-
