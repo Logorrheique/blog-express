@@ -35,10 +35,11 @@ app.use('/profile', routes.profile);
 app.use('/create-post', routes.createPost);
 app.use('/send-post', routes.sendPost);
 app.use('/feed', routes.feed);
-app.use('/managePost', routes.managePost);
+app.use('/manage-post', routes.managePost);
+app.use('/modify',routes.modifyPost)
 
 //layout handler view engine
-app.use(express.static('public'))//maybe pour le style par layout 
+app.use(express.static('public'));//maybe pour le style par layout 
 app.set('view engine', 'hbs')
 app.engine('hbs', handlebars({
     layoutsDir: __dirname + '/views/layouts',

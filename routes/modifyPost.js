@@ -15,18 +15,17 @@ const { checkAuthenticated } = require("../googleAuth/checkAuthenticated");
 //create connnection with database
 const connectionDB = mysql.createConnection(config.db);
 
-router.get('/',checkAuthenticated,(req,res) => {
+router.get('/id:*',checkAuthenticated,(req, res) => {
+    const idToModify = req.params['0'];
     const user = req.user.id;
-    const query = 'SELECT * from post WHERE user_id = '+ user;
+    const query = 'SELECT * from post WHERE user_id = '+ user +' AND post_id = '+idToModify;
+    console.log(query);
     connectionDB.connect((err) => {
         connectionDB.query(query,(err,result) => {
             if (err) throw err;
             const post = {...result};
-            res.render("main", { layout: "managePost", postList : post});
-            const listPost = post;
-            console.log(post);
+            res.render("main", { layout: "modifyPost", postList : post});
         })
-
     })
 })
 

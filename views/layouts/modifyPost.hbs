@@ -3,14 +3,14 @@
  <head>
    <meta charset="utf-8" />
    <title>Mon application avec NodeJS, ExpressJS et Handlebars</title>
-   <link rel="stylesheet" type="text/css" href="./style.css" />
+   <link rel="stylesheet" type="text/css" href="/style.css" />
    <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
  </head>  
 <body>
     {{>navbar-loged}}
-    <h1>Your posts :</h1>
+    <h1>Let's modify your post !</h1>
     <div class="feed-manage">
         {{#each postList as |post index|}}
             <div class="post-manage">
@@ -21,7 +21,6 @@
                 </div>
                 <h2>{{post.post_title}}</h2> 
                 <p>{{post.post_content}}</p>
-                <a href="/modify/id:{{post.post_id}}">modify</a>            
         </div>
         {{/each}}
         

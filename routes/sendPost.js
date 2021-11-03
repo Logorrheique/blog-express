@@ -23,7 +23,7 @@ router.post('/',checkAuthenticated,(req, res) => {
             if (err) throw err;
         }) 
     })
-    res.redirect('/');
+    res.redirect('/profile');
 })
 
 module.exports = router;

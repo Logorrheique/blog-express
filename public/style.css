@@ -135,6 +135,13 @@ body{
    justify-content: center;
    align-self: center;
 }
+.post-manage-header>h6{
+   display: flex;
+   align-self: center;
+   justify-content: center;
+   margin-right: 2%;
+   color: var(--purple);
+}
 .post-manage-header>img{
    display: flex;
    align-self: flex-start;
@@ -168,9 +175,10 @@ body{
 }
 .post-header>h5{
    width: 100%;
-   justify-content: center;
+   justify-content:center ;
    align-self: center;
 }
+
 .post-header>img{
    display: flex;
    align-self: flex-start;
@@ -184,8 +192,8 @@ body{
 
 /* FORM POST */
 .form-post{
-   width: 50em;
    display: flex;
+   width: 20%;
    justify-content: center;
    text-align: center;
    flex-direction: column;
@@ -204,7 +212,7 @@ body{
    display:flex;
    align-self: center;
    height: 3em;
-   width: 40%;
+   width: 80%;
    border: 2.5px solid var(--purple);
    border-radius: 6px;
    text-decoration:none;
@@ -233,45 +241,6 @@ body{
    border-radius: 6px;
 }
 /* FORM POST */
-
-/* FORM MODIFY */
-.form-modify{
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   text-align: center;
-   flex-direction: column;
-   
-}
-.form-modify>*{
-   margin-top: 1%;
-   margin-left: 3%;
-   margin-right: 3%;
-   margin-bottom: 1%;
-   resize : none;
-}
-.form-modify>input{
-   display: flex;
-   justify-content: center;
-   text-align: center;
-   align-self: center;
-   width: 50%;
-}
-.form-modify>button{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   align-self: flex-end;
-   height: 2em;
-   width: 20%;
-   border: 1px solid  #FFF;
-   border-radius: 6px;
-   text-decoration:none;
-   background-color: black;
-   color: whitesmoke;
-   text-shadow: 2px 3px 5px var(--purple);
-}
-/* FORM MODIFY */
 
 /* GOOGLE LOGIN PAGE */
 .google-auth-login{

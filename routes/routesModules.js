@@ -8,4 +8,5 @@ module.exports = {
     sendPost: require('./sendPost'),
     feed : require('./feed'),
     managePost : require('./managePost'),
+    modifyPost : require('./modifyPost'),
  }
