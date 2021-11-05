@@ -10,9 +10,17 @@
  </head>  
 <body>
     {{>navbar-loged}}
-    <h1>Let's modify your post !</h1>
-    <div class="feed-manage">
-        {{#each postList as |post index|}}
+    <div class="global-content">
+        {{#each postList as |post index|}}           
+            <form class="form-modify">
+                <label>Modify your post !</label>
+                <input name="" type="text" id="title" style="font-family: 'DM Sans', sans-serif;" maxlength="28" value="{{post.post_title}}" onkeyup="outputTitle.innerHTML=this.value">
+                <label>Modify Something !</label>
+                <textarea name="postContent" id="postContent"type="text" cols="30" rows="10" form="post"style="font-family: 'DM Sans', sans-serif;" onkeyup="outputContent.innerHTML=this.value">{{post.post_content}}</textarea>
+                <button type="submit">Modify !</button>
+            </form>
+        </div>
+        <div class="middle-content">
             <div class="post-manage">
                 <div class="post-manage-header">
                     <img src="{{post.user_picture}}" alt="" >                  
@@ -21,9 +29,18 @@
                 </div>
                 <h2>{{post.post_title}}</h2> 
                 <p>{{post.post_content}}</p>
+            </div>
+            <div class="arrow-right"></div>
+            <div class="post-manage">
+                <div class="post-manage-header">
+                    <img src="{{post.user_picture}}" alt="" >                  
+                    <h5>{{post.user_name}}</h5>
+                    <h6>#{{index}}</h6>                     
+                </div>
+                <h2 id="outputTitle">{{post.post_title}}</h2> 
+                <p id="outputContent">{{post.post_content}}</p>
+            </div>
         </div>
-        {{/each}}
-        
-    </div>
+    {{/each}}
 </body>
 </html>

@@ -25,8 +25,23 @@ body{
    align-items: center;
    flex-direction: column;
 }
+/* GLOBAL CONTENT */
+.global-content{
+   display: flex;
+   justify-content: space-evenly;
+   align-items: center;
+   flex-direction: row;
+}
+/* GLOBAL CONTENT */
 
-
+/* ARROW DOWN */
+.arrow-right {
+   margin-top: 2%;
+   width: 64px;
+   height: 40px;
+   background-color: var(--purple);
+   clip-path: polygon(0 0, 0% 100%, 75% 50%);
+}
 /* NAVBAR */
 .navbar{
    display: flex;
@@ -107,15 +122,15 @@ body{
 /* FEED-MANAGE AND POST*/
 .feed-manage{
    display: flex;
-   justify-content: center;
+   justify-content: space-around;
    align-items: center;
    flex-direction: row;
+   width: 100%;
 }
 .post-manage{
    display: flex;
    align-items: center;
    flex-direction: column;
-   margin: 1.5em;
    border:1px solid var(--white);
    border-radius: 12px;
    width: 20%;
@@ -242,6 +257,72 @@ body{
 }
 /* FORM POST */
 
+/* CONTAINER FORM MODIFY */
+.container-form-modify{
+   display: flex;
+   width: 100%;
+}
+/* CONTAINER FORM MODIFY */
+
+/* FORM MODIFY */
+.form-modify{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   border: 1px solid#fff;
+   border-radius: 12px;
+   width: 20%;
+}
+.form-modify>textarea{
+   resize : none;
+   color: var(--black);
+   border: 2.5px solid var(--purple);
+   border-radius: 6px;
+}
+.form-modify>input{
+   display:flex;
+   align-self: center;
+   width: 50%;
+   border: 2.5px solid var(--purple);
+   border-radius: 6px;
+   text-decoration:none;
+   background-color: black;
+   color: whitesmoke;
+}
+
+.form-modify>button {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   align-self: flex-end;
+   height: 3em;
+   width: 20%;
+   border: 1px solid  #FFF;
+   border-radius: 6px;
+   text-decoration:none;
+   background-color: black;
+   text-shadow: 2px 3px 5px var(--purple);
+   color: whitesmoke;
+}
+.form-modify>button:hover{
+   border: 1px solid var(--grey);
+   transform: scale(1.01);
+}
+.form-modify>label{
+   margin-top: 1%;
+}
+/* FORM MODIFY */
+
+/* MIDDLE CONTENT */
+.middle-content{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin: 3%;
+   flex-direction: row;
+}
+/* MIDDLE CONTENT */
 /* GOOGLE LOGIN PAGE */
 .google-auth-login{
    display: flex;
