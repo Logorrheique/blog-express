@@ -4,6 +4,17 @@ const app = express();
 app.use(express.json());
 const port = process.env.PORT || 3000;
 
+//helmet
+const helmet = require("helmet");
+app.use(
+    helmet.contentSecurityPolicy({
+      useDefaults: true,
+      directives: {
+        "script-src": ["'self'","*.google.com","'unsafe-inline'"],
+        "frame-src" : ["'self'","accounts.google.com"]
+      },
+    })
+  );
 //cookie parser
 const cookieParser = require('cookie-parser');
 app.use(cookieParser());

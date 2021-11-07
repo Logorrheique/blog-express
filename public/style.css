@@ -35,13 +35,21 @@ body{
 /* GLOBAL CONTENT */
 
 /* ARROW DOWN */
-.arrow-right {
-   margin-top: 2%;
-   width: 64px;
-   height: 40px;
-   background-color: var(--purple);
-   clip-path: polygon(0 0, 0% 100%, 75% 50%);
-}
+.arrow-container {
+   width: 20%;
+   height: 10vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+ .arrow {
+   display : inline-block;
+   height : 0;
+   width : 0;
+   border-top : 15px solid transparent;
+   border-bottom : 15px solid transparent;
+   border-left : 26px solid var(--purple);
+ }
 /* NAVBAR */
 .navbar{
    display: flex;
@@ -240,7 +248,6 @@ body{
    align-self: flex-end;
    height: 3em;
    width: 20%;
-   border: 1px solid  #FFF;
    border-radius: 6px;
    text-decoration:none;
    background-color: black;
@@ -323,6 +330,7 @@ body{
    flex-direction: row;
 }
 /* MIDDLE CONTENT */
+
 /* GOOGLE LOGIN PAGE */
 .google-auth-login{
    display: flex;

@@ -14,7 +14,7 @@
         {{#each postList as |post index|}}           
             <form class="form-modify">
                 <label>Modify your post !</label>
-                <input name="" type="text" id="title" style="font-family: 'DM Sans', sans-serif;" maxlength="28" value="{{post.post_title}}" onkeyup="outputTitle.innerHTML=this.value">
+                <input name="" type="text" id="title" style="font-family: 'DM Sans', sans-serif;" maxlength="28" value="{{post.post_title}}" onchange="outputTitle.innerHTML=this.value">
                 <label>Modify Something !</label>
                 <textarea name="postContent" id="postContent"type="text" cols="30" rows="10" form="post"style="font-family: 'DM Sans', sans-serif;" onkeyup="outputContent.innerHTML=this.value">{{post.post_content}}</textarea>
                 <button type="submit">Modify !</button>
@@ -30,7 +30,11 @@
                 <h2>{{post.post_title}}</h2> 
                 <p>{{post.post_content}}</p>
             </div>
-            <div class="arrow-right"></div>
+            <div class="arrow-container">        
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+                <div class="arrow"></div>
+            </div>
             <div class="post-manage">
                 <div class="post-manage-header">
                     <img src="{{post.user_picture}}" alt="" >                  
