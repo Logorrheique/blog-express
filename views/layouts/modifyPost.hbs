@@ -12,7 +12,7 @@
     {{>navbar-loged}}
     <div class="global-content">
         {{#each postList as |post index|}}           
-            <form class="form-modify">
+            <form class="form-modify" action="/modify-post" method="POST" name="postContent" id="postContent">
                 <label>Modify your post !</label>
                 <input name="" type="text" id="title" style="font-family: 'DM Sans', sans-serif;" maxlength="28" value="{{post.post_title}}" onchange="outputTitle.innerHTML=this.value">
                 <label>Modify Something !</label>

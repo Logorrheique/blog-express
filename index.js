@@ -11,7 +11,8 @@ app.use(
       useDefaults: true,
       directives: {
         "script-src": ["'self'","*.google.com","'unsafe-inline'"],
-        "frame-src" : ["'self'","accounts.google.com"]
+        "frame-src" : ["'self'","accounts.google.com"],
+        "img-src" : ["'self'","lh3.googleusercontent.com"]
       },
     })
   );
