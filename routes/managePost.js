@@ -23,8 +23,6 @@ router.get('/',checkAuthenticated,(req,res) => {
             if (err) throw err;
             const post = {...result};
             res.render("main", { layout: "managePost", postList : post});
-            const listPost = post;
-            console.log(post);
         })
 
     })

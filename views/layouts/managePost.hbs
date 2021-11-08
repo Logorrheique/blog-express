@@ -19,12 +19,15 @@
                     <h5>{{post.user_name}}</h5>
                     <h6>#{{index}}</h6>                     
                 </div>
-                <h2>{{post.post_title}}</h2> 
-                <p>{{post.post_content}}</p>
-                <a href="/modify/id:{{post.post_id}}">modify</a>            
+                <div class="post-manage-body">
+                    <h2>{{post.post_title}}</h2> 
+                    <p>{{post.post_content}}</p>
+                </div>
+                <div class="post-manage-footer">
+                    <button><a href="/modify/id:{{post.post_id}}">modify</a></button>
+                </div>                
         </div>
-        {{/each}}
-        
+        {{/each}}  
     </div>
 </body>
 </html>
